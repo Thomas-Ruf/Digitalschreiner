@@ -1,8 +1,35 @@
 ---
 import '../styles/global.css';
-interface Props { title?: string; description?: string; }
-const { title, description = 'Verbesserung und Digitalisierung im Schreinerhandwerk – Praxiswissen aus der Schweiz.' } = Astro.props;
-const fullTitle = title ? `${title} | Digital Schreiner` : 'Digital Schreiner – Digitalisierung im Schreinerhandwerk';
+import { SITE, AUTHOR } from '../site';
+interface Props { title?: string; description?: string; image?: string; type?: 'website' | 'article'; schema?: object; }
+const { title, description = SITE.description, image = '/og-image.png', type = 'website', schema } = Astro.props;
+const fullTitle = title ? `${title} | ${SITE.name}` : `${SITE.name} – ${SITE.claim}`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL(image.endsWith('.svg') ? '/og-image.png' : image, Astro.site);
+
+const baseSchema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: SITE.name,
+    url: SITE.url,
+    description: SITE.description,
+    inLanguage: 'de-CH',
+    publisher: { '@id': `${SITE.url}/#person` },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': `${SITE.url}/#person`,
+    name: AUTHOR.name,
+    jobTitle: AUTHOR.jobTitle,
+    description: AUTHOR.bio,
+    url: `${SITE.url}/ueber/`,
+    knowsAbout: ['Schreinerhandwerk', 'Digitalisierung', 'Lean Management', 'Prozessoptimierung', 'Arbeitsvorbereitung', 'CAD/CAM'],
+    address: { '@type': 'PostalAddress', addressCountry: 'CH' },
+  },
+];
+const allSchema = schema ? [...baseSchema, schema] : baseSchema;
 ---
 <!doctype html>
 <html lang="de-CH">
@@ -11,26 +38,41 @@ const fullTitle = title ? `${title} | Digital Schreiner` : 'Digital Schreiner �
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
+    <meta name="author" content={AUTHOR.name} />
+    <meta name="theme-color" content="#0B1220" />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:locale" content="de_CH" />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="alternate" type="application/rss+xml" title="Digital Schreiner" href="/rss.xml" />
-    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <link rel="preconnect" href="https://rsms.me/" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <link rel="alternate" type="application/rss+xml" title={SITE.name} href="/rss.xml" />
+    <script type="application/ld+json" set:html={JSON.stringify(allSchema)} />
   </head>
   <body>
     <header class="site-header">
       <div class="container nav">
-        <a href="/" class="logo">🪚 digital<span>-schreiner</span></a>
+        <a href="/" class="logo" aria-label="digitalschreiner – Startseite">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="11" fill="#0B1220"/><path d="M11 13h16l-4.5 11v11h-7V24z" fill="#fff"/><rect x="30" y="13" width="8" height="8" rx="2" fill="#2DD4BF"/><rect x="30" y="27" width="8" height="8" rx="2" fill="#fff" fill-opacity=".28"/></svg>
+          <span style="color:inherit"><b>digital</b><span>schreiner</span></span>
+        </a>
         <nav>
           <a href="/">Blog</a>
-          <a href="/ueber">Über</a>
+          <a href="/ueber/">Über</a>
         </nav>
       </div>
     </header>
-    <main class="container"><slot /></main>
+    <main><slot /></main>
     <footer class="site-footer">
       <div class="container">
-        © {new Date().getFullYear()} digital-schreiner.ch · Handwerk trifft Digitalisierung 🇨🇭 · <a href="/rss.xml">RSS</a>
+        <div><strong>digitalschreiner</strong> · {SITE.claim}</div>
+        <div>© {new Date().getFullYear()} {AUTHOR.name} · digital-schreiner.ch · <a href="/rss.xml">RSS</a></div>
       </div>
     </footer>
   </body>

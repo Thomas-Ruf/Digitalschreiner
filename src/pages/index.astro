@@ -6,21 +6,24 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
 const fmt = (d: Date) => d.toLocaleDateString('de-CH', { day: 'numeric', month: 'long', year: 'numeric' });
 ---
 <Base>
-  <section class="hero">
-    <h1>Handwerk trifft Digitalisierung</h1>
-    <p>Ideen, Werkzeuge und Erfahrungen für bessere Abläufe in Schweizer Schreinereien.</p>
-  </section>
-  <ul class="post-list">
-    {posts.map((post) => (
-      <li>
-        <a class="card" href={`/blog/${post.id}/`}>
-          {post.data.image && <img src={post.data.image} alt="" loading="lazy" />}
-          <div class="meta">{fmt(post.data.date)}</div>
-          <h2>{post.data.title}</h2>
-          <p>{post.data.description}</p>
-          <div style="margin-top:.6rem">{post.data.tags.map((t) => <span class="tag">{t}</span>)}</div>
-        </a>
-      </li>
-    ))}
-  </ul>
+  <div class="container">
+    <section class="hero">
+      <span class="eyebrow">Schreinerhandwerk · Schweiz</span>
+      <h1>Wirksamkeit<br />durch <em>Klarheit.</em></h1>
+      <p>Klare Prozesse, sinnvolle Digitalisierung und konkrete Verbesserungen für Schweizer Schreinereien.</p>
+    </section>
+    <h2 class="section-title">Neueste Beiträge</h2>
+    <ul class="post-list">
+      {posts.map((post) => (
+        <li>
+          <a class="card" href={`/blog/${post.id}/`}>
+            {post.data.image && <img src={post.data.image} alt="" loading="lazy" />}
+            <div class="meta">{fmt(post.data.date)} {post.data.tags.map((t) => <span class="tag">{t}</span>)}</div>
+            <h2>{post.data.title}</h2>
+            <p>{post.data.description}</p>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
 </Base>

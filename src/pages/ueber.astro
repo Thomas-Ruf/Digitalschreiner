@@ -1,10 +1,17 @@
 ---
 import Base from '../layouts/Base.astro';
+import { AUTHOR } from '../site';
 ---
-<Base title="Über">
-  <article>
-    <h1>Über diesen Blog</h1>
-    <p>Auf <strong>digital-schreiner.ch</strong> geht es um die Frage: Wie machen wir Schreinereien in der Schweiz effizienter, moderner und zukunftsfähig – ohne das Handwerk zu verlieren?</p>
-    <p>Themen sind unter anderem Arbeitsvorbereitung, CAD/CAM und CNC, ERP- und Branchensoftware, Lean-Methoden in der Werkstatt, Zeiterfassung, digitale Baustellendokumentation und KI im Alltag.</p>
-  </article>
+<Base title="Über Thomas Ruf" description={AUTHOR.bio}>
+  <div class="container">
+    <article class="narrow">
+      <span class="eyebrow">Über</span>
+      <h1>Wirksamkeit durch Klarheit.</h1>
+      <p>Ich bin <strong>{AUTHOR.name}</strong>, Schreinermeister und ehemaliger Spitzensportler.</p>
+      <p>Im Spitzensport habe ich gelernt, was Leistung wirklich ausmacht: ein klares Ziel, saubere Abläufe und konsequentes Verbessern in kleinen Schritten. Genau diese Haltung bringe ich ins Schreinerhandwerk.</p>
+      <h2>Worum es hier geht</h2>
+      <p>Auf <strong>digital-schreiner.ch</strong> geht es um die Frage: Wie machen wir Schreinereien in der Schweiz effizienter, moderner und zukunftsfähig – ohne das Handwerk zu verlieren?</p>
+      <p>Themen sind unter anderem Arbeitsvorbereitung, CAD/CAM und CNC, ERP- und Branchensoftware, Lean-Methoden in der Werkstatt, Zeiterfassung, digitale Baustellendokumentation und KI im Alltag.</p>
+    </article>
+  </div>
 </Base>
