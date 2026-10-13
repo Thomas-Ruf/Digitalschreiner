@@ -1,0 +1,86 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE, AUTHOR } from '../site';
+---
+<Base title="Datenschutzerklärung" description={`Datenschutzerklärung von ${SITE.name} gemäss Schweizer Datenschutzgesetz (nDSG).`}>
+  <div class="container">
+    <article class="narrow">
+      <span class="eyebrow">Rechtliches</span>
+      <h1>Datenschutzerklärung</h1>
+
+      <p>
+        Der Schutz Ihrer Privatsphäre und Ihrer persönlichen Daten ist uns ein wichtiges Anliegen.
+        Diese Datenschutzerklärung informiert Sie darüber, welche Daten bei der Nutzung von <strong>digital-schreiner.ch</strong> verarbeitet werden – und warum dieser Blog bewusst nach dem Prinzip der Datensparsamkeit arbeitet.
+      </p>
+
+      <h2>1. Verantwortliche Stelle</h2>
+      <p>
+        Verantwortlich für die Datenbearbeitung auf dieser Website im Sinne des Schweizer Datenschutzgesetzes (nDSG) ist:
+      </p>
+      <p>
+        <strong>{AUTHOR.name}</strong><br />
+        {AUTHOR.jobTitle}<br />
+        {AUTHOR.location}<br />
+        E-Mail: <a href={`mailto:${AUTHOR.email}`}>{AUTHOR.email}</a>
+      </p>
+
+      <h2>2. Grundsatz: Kein Tracking, keine Analyse-Tools</h2>
+      <p>
+        Auf dieser Website kommen <strong>keine Tracking-Tools</strong> (wie Google Analytics, Matomo oder sonstige Webanalyse-Dienste) und <strong>keine Werbe-Netzwerke</strong> zum Einsatz.
+        Es werden keine Verhaltensprofile erstellt und keine Marketing-Cookies gesetzt.
+      </p>
+
+      <h2>3. Lokale Einbindung von Schriften & Assets</h2>
+      <p>
+        Alle auf dieser Website verwendeten Schriften (Inter) und Grafiken werden direkt lokal über die eigene Domain bereitgestellt.
+        Es finden keine automatisierten Abrufe bei externen Drittanbietern wie Google Fonts statt, sodass Ihre IP-Adresse nicht an externe Schriftendienste übermittelt wird.
+      </p>
+
+      <h2>4. Server-Logdateien & Hosting</h2>
+      <p>
+        Diese Website wird als rein statische Seite über <strong>GitHub Pages</strong> (GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA) bereitgestellt.
+        Die Datenübermittlung in die USA stützt sich auf anerkannte Garantien gemäss Art. 16 nDSG, namentlich das <em>Swiss-U.S. Data Privacy Framework</em> sowie Standardvertragsklauseln.
+      </p>
+      <p>
+        Beim Aufruf der Seiten erfasst der Server des Hostinganbieters technisch bedingt Informationen, die Ihr Browser automatisch übermittelt (Server-Logfiles). Dazu gehören:
+      </p>
+      <ul>
+        <li>Abgerufene URL und Dateiname</li>
+        <li>Datum und Uhrzeit des Zugriffs</li>
+        <li>Übertragene Datenmenge und Statuscode</li>
+        <li>Browsertyp, Version und Betriebssystem</li>
+        <li>Referrer URL (zuvor besuchte Seite)</li>
+        <li>IP-Adresse des anfragenden Geräts</li>
+      </ul>
+      <p>
+        Diese Daten sind für den sicheren, stabilen Betrieb und die Auslieferung der Website technisch zwingend erforderlich und werden nicht mit anderen Datenquellen zusammengeführt.
+      </p>
+
+      <h2>5. Kontaktaufnahme per E-Mail</h2>
+      <p>
+        Wenn Sie per E-Mail Kontakt mit uns aufnehmen, werden die von Ihnen übermittelten Angaben (wie Name, E-Mail-Adresse und der Inhalt Ihrer Nachricht) ausschliesslich zum Zweck der Beantwortung Ihrer Anfrage gespeichert und bearbeitet.
+        Diese Daten werden vertraulich behandelt und ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben.
+      </p>
+
+      <h2>6. Ihre Rechte nach Schweizer Datenschutzrecht (nDSG)</h2>
+      <p>
+        Nach dem Schweizer Bundesgesetz über den Datenschutz (nDSG) stehen Ihnen hinsichtlich Ihrer personenbezogenen Daten verschiedene Rechte zu:
+      </p>
+      <ul>
+        <li><strong>Auskunftsrecht (Art. 25 nDSG):</strong> Sie können jederzeit Auskunft darüber verlangen, ob und welche Personendaten über Sie bearbeitet werden.</li>
+        <li><strong>Recht auf Berichtigung & Löschung:</strong> Sie können verlangen, dass unrichtige Personendaten berichtigt oder gelöscht werden, soweit dem keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</li>
+        <li><strong>Recht auf Einschränkung der Bearbeitung:</strong> Sie können die Einschränkung der Bearbeitung Ihrer Personendaten verlangen.</li>
+        <li><strong>Aufsichtsbehörde:</strong> Betroffene Personen haben das Recht, bei der zuständigen Aufsichtsbehörde Anzeige zu erstatten: Eidgenössischer Datenschutz- und Öffentlichkeitsbeauftragter (EDÖB), Feldeggweg 1, 3003 Bern, Schweiz.</li>
+      </ul>
+      <p>
+        Zur Geltendmachung Ihrer Rechte genügt eine formlose Mitteilung an <a href={`mailto:${AUTHOR.email}`}>{AUTHOR.email}</a>.
+      </p>
+
+      <h2>7. Aktualität und Änderungen</h2>
+      <p>
+        Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf anzupassen, um stets den aktuellen rechtlichen Anforderungen zu entsprechen.
+      </p>
+      <p class="meta">Stand: Oktober 2026</p>
+    </article>
+  </div>
+</Base>

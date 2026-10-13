@@ -26,6 +26,7 @@ const baseSchema = [
     jobTitle: AUTHOR.jobTitle,
     description: AUTHOR.bio,
     url: `${SITE.url}/ueber/`,
+    email: AUTHOR.email,
     knowsAbout: ['Schreinerhandwerk', 'Digitalisierung', 'Lean Management', 'Prozessoptimierung', 'Arbeitsvorbereitung', 'CAD/CAM'],
     address: { '@type': 'PostalAddress', addressCountry: 'CH' },
   },
@@ -58,10 +59,9 @@ const allSchema = schema ? [...baseSchema, schema] : baseSchema;
     <header class="site-header">
       <div class="container nav">
         <a href="/" class="logo" aria-label="digitalschreiner – Startseite">
-          <svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="11" fill="#0B1220"/><path d="M11 13h16l-4.5 11v11h-7V24z" fill="#fff"/><rect x="30" y="13" width="8" height="8" rx="2" fill="#2DD4BF"/><rect x="30" y="27" width="8" height="8" rx="2" fill="#fff" fill-opacity=".28"/></svg>
-          <span style="color:inherit"><b>digital</b><span>schreiner</span></span>
+          <img src="/brand/logo.svg" alt="digitalschreiner" class="site-logo" width="170" height="32" loading="eager" decoding="async" />
         </a>
-        <nav>
+        <nav aria-label="Hauptnavigation">
           <a href="/">Blog</a>
           <a href="/ueber/">Über</a>
         </nav>
@@ -69,9 +69,23 @@ const allSchema = schema ? [...baseSchema, schema] : baseSchema;
     </header>
     <main><slot /></main>
     <footer class="site-footer">
-      <div class="container">
-        <div><strong>digitalschreiner</strong> · {SITE.claim}</div>
-        <div>© {new Date().getFullYear()} {AUTHOR.name} · digital-schreiner.ch · <a href="/rss.xml">RSS</a></div>
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <a href="/" class="footer-logo-link" aria-label="digitalschreiner – Startseite">
+            <img src="/brand/logo-white.svg" alt="digitalschreiner" class="footer-logo" width="149" height="28" loading="lazy" decoding="async" />
+          </a>
+          <p class="footer-claim">{SITE.claim}</p>
+        </div>
+        <div class="footer-meta">
+          <nav class="footer-nav" aria-label="Fussbereich-Navigation">
+            <a href="/">Blog</a>
+            <a href="/ueber/">Über</a>
+            <a href="/impressum/">Impressum</a>
+            <a href="/datenschutz/">Datenschutz</a>
+            <a href="/rss.xml">RSS</a>
+          </nav>
+          <p class="footer-copy">© {new Date().getFullYear()} {AUTHOR.name} · digital-schreiner.ch</p>
+        </div>
       </div>
     </footer>
   </body>

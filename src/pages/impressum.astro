@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE, AUTHOR } from '../site';
+---
+<Base title="Impressum" description={`Impressum von ${SITE.name} – Angaben gemäss Schweizer Recht.`}>
+  <div class="container">
+    <article class="narrow">
+      <span class="eyebrow">Rechtliches</span>
+      <h1>Impressum</h1>
+
+      <h2>Kontakt & Betreiber</h2>
+      <p>
+        <strong>{AUTHOR.name}</strong><br />
+        {AUTHOR.jobTitle}<br />
+        {AUTHOR.location}
+      </p>
+      <p>
+        E-Mail: <a href={`mailto:${AUTHOR.email}`}>{AUTHOR.email}</a><br />
+        Website: <a href={SITE.url}>{SITE.url.replace('https://', '')}</a>
+      </p>
+
+      <h2>Verantwortlich für den Inhalt</h2>
+      <p>{AUTHOR.name}</p>
+
+      <h2>Haftungsausschluss</h2>
+      <p>
+        <strong>Haftung für Inhalte:</strong> Alle Inhalte dieses Blogs werden mit grösster Sorgfalt und nach bestem Wissen erstellt.
+        Für die Richtigkeit, Vollständigkeit und Aktualität der bereitgestellten Fachbeiträge und Informationen kann jedoch keine Gewähr übernommen werden.
+      </p>
+      <p>
+        <strong>Haftung für Verweise und Links:</strong> Verweise und Links auf Websites Dritter liegen ausserhalb unseres Verantwortungsbereichs.
+        Es wird jegliche Verantwortung für solche Websites abgelehnt. Der Zugriff und die Nutzung solcher Websites erfolgen auf eigene Gefahr des Nutzers.
+      </p>
+
+      <h2>Urheberrecht</h2>
+      <p>
+        Die Urheber- und alle anderen Rechte an Inhalten, Bildern, Grafiken oder anderen Dateien auf der Website gehören ausschliesslich {AUTHOR.name} oder den speziell genannten Rechtsinhabern.
+        Für die Reproduktion jeglicher Elemente ist die schriftliche Zustimmung des Urheberrechtsträgers im Voraus einzuholen.
+      </p>
+    </article>
+  </div>
+</Base>

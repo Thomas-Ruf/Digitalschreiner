@@ -17,6 +17,8 @@ ${posts.map((p) => `- [${p.data.title}](${SITE.url}/blog/${p.id}/): ${p.data.des
 ## Weitere Seiten
 
 - [Über den Autor](${SITE.url}/ueber/)
+- [Impressum](${SITE.url}/impressum/)
+- [Datenschutz](${SITE.url}/datenschutz/)
 - [RSS-Feed](${SITE.url}/rss.xml)
 `;
   return new Response(body, { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
