@@ -1,7 +1,7 @@
 ---
 title: "Woran Digitalisierung wirklich scheitert: fehlende Datenpflege"
 description: "Nicht die Software ist das Problem, sondern veraltete Daten im ERP und CAD. Warum Stammdaten und Bewegungsdaten das Fundament jeder Schreinerei sind – mit Checkliste."
-date: 2026-10-13
+date: 2026-10-13T15:40:00+02:00
 image: "/images/datenpflege.svg"
 tags: ["Stammdaten", "Bewegungsdaten", "ERP", "CAD", "Digitalisierung"]
 ---

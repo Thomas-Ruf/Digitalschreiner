@@ -8,7 +8,7 @@
   --accent: #0D9488;
   --accent-bright: #2DD4BF;
   --radius: 14px;
-  --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font: "Inter Variable", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 * { box-sizing: border-box; }
 html { -webkit-font-smoothing: antialiased; }

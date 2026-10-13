@@ -13,6 +13,7 @@ Blog über Verbesserung und Digitalisierung im Schreinerhandwerk in der Schweiz.
 title: "Titel"
 description: "Kurzbeschreibung für Übersicht & Google"
 date: 2026-10-20
+updated: 2026-11-05               # optional: Datum der letzten Überarbeitung
 image: "/images/titelbild.jpg"   # optional
 tags: ["CNC", "Lean"]
 draft: false                      # true = nicht veröffentlichen
